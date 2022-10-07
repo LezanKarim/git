@@ -2,6 +2,8 @@ using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
+
 
 public class Stats : MonoBehaviour
 {
@@ -32,6 +34,11 @@ public class Stats : MonoBehaviour
             StartCoroutine(Wait2());
             iscoool = false;
 
+
+        if (Input.GetKey("escape"))
+        {
+            SceneManager.LoadScene("Menu");
+        }
     }
 
     IEnumerator Wait()

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Respawn : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class Respawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.y<-20)
+        if(transform.position.y<-5)
         {
             transform.position = Checkpoint.position;
             rb.velocity = Vector3.zero;
@@ -27,6 +28,11 @@ public class Respawn : MonoBehaviour
             RIPimage.SetActive(true);
             StartCoroutine(Wait());
             Deaths++;
+        }
+        if (!Input.GetKey("w") && !Input.GetKey("s") && !Input.GetKey("a") && !Input.GetKey("d"))
+        {
+            //rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
         }
     }
     void OnTriggerEnter(Collider other)
@@ -44,7 +50,14 @@ public class Respawn : MonoBehaviour
             RIPimage.SetActive(true);
             StartCoroutine(Wait());
             Deaths++;
+
         }
+        if (other.gameObject.name == "Win")
+        {
+            GameObject.Find("e").GetComponent<MakeTXTFile>().WriteString();
+            //SceneManager.LoadScene("Winn");
+        }
+    
     }
 
     IEnumerator Wait()

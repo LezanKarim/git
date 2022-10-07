@@ -49,7 +49,7 @@ public class GoToPoint : MonoBehaviour
                 
                 if (GameObject.Find("Level"+level.ToString()).transform.childCount == num +1 )
                 {
-                    Debug.Log("CUFk");
+                    //Debug.Log("CUFk");
                     num = 0;
                     Target = GameObject.Find("Level" + level.ToString()).transform.GetChild(num).transform;
                 }
@@ -58,7 +58,7 @@ public class GoToPoint : MonoBehaviour
                     num++;
                     Target = GameObject.Find("Level" + level.ToString()).transform.GetChild(num).transform;
                 }
-                Debug.Log(GameObject.Find("Level" + level.ToString()).transform.childCount);
+                //Debug.Log(GameObject.Find("Level" + level.ToString()).transform.childCount);
 
                 
                 //Speed = other.gameObject.GetComponent<Point>().Speed;
